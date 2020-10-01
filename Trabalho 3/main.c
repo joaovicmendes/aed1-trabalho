@@ -72,22 +72,22 @@ int resolveJosephus(int n, int m)
     for (int i = 0; i < n; i++)
         insereLista(i + 1);
 
-    Pessoa *que_mata = inicio;
-    while (que_mata != que_mata->prox)
+    Pessoa *assassino = inicio;
+    while (assassino != assassino->prox)
     {
         int passos = m - 1;
-        Pessoa *antes_da_morta = que_mata;
+        Pessoa *anterior_morta = assassino;
         while (passos > 0)
         {
-            antes_da_morta = antes_da_morta->prox;
+            anterior_morta = anterior_morta->prox;
             passos--;
         }
 
-        if (antes_da_morta->prox == que_mata)
-            antes_da_morta = que_mata;
+        if (anterior_morta->prox == assassino)
+            anterior_morta = assassino;
 
-        removeLista(antes_da_morta);
-        que_mata = antes_da_morta->prox;
+        removeLista(anterior_morta);
+        assassino = anterior_morta->prox;
     }
 
     int s = inicio->posicao;
